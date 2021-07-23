@@ -8,22 +8,7 @@ const index = ({pageData}) => {
     return (
       <>
           <Header />
-          <AnimesList animes={pageData.data.Page.media}/>)
-          <div style={{width: '100%', margin: 'auto', display: 'flex', justifyContent: 'center', height: '6rem', alignItems: 'center'}}>
-            {pageData.data.Page.pageInfo.currentPage !== 1 ? 
-              <Link href="/anime/[pageNum]" as={`/anime/${pageData.data.Page.pageInfo.currentPage - 1}`}>
-                Prev
-              </Link>
-            : null
-            }
-            <div>{pageData.data.Page.pageInfo.currentPage}</div>
-            {pageData.data.Page.pageInfo.hasNextPage ? 
-              <Link href="/anime/[pageNum]" as={`/anime/${pageData.data.Page.pageInfo.currentPage + 1}`}>
-                Next
-              </Link>
-            : null
-            }
-          </div>
+          <AnimesList animes={pageData.data.Page.media} pagination={pageData.data.Page.pageInfo} />
       </>
     );
     

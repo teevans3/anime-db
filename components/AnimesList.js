@@ -1,8 +1,10 @@
 import React from 'react'
 import Image from 'next/image';
 
+import Pagination from './Pagination';
+
 export const AnimesList = (props) => {
-    return props.animes.map((ani, index) => {
+    const animesList = props.animes.map((ani, index) => {
         return (
             <div key={ani.id}>
                 <div >
@@ -11,8 +13,18 @@ export const AnimesList = (props) => {
                     <p>{ani.description}</p>
                 </div>
             </div>
+            
         )
-    })
+    });
+
+    return (
+        <>
+            <div>
+                {animesList}
+            </div>
+            <Pagination pageInfo={props.pagination}/>
+        </>
+    )
 }
 
 export default AnimesList;
