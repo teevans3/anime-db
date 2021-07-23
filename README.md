@@ -4,7 +4,7 @@ This project was created with 'create-next-app'
 
 After installing on your local machine, (assuming you're using npm) run npm install to all dependencies.
 
-Then run 'npm run dev' to start it up. It will be in http://localhost:3000
+Then run 'npm run dev' to start it up. It will be served at http://localhost:3000
 
 ## Files of note:
 
