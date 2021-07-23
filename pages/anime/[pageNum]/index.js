@@ -4,7 +4,6 @@ import Header from '../../../components/Header';
 import AnimesList from '../../../components/AnimesList';
 
 const index = ({pageData}) => {
-    console.log(pageData);
     return (
       <>
           <Header />
