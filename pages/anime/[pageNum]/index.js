@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import Header from '../../../components/Header';
 import AnimesList from '../../../components/AnimesList';
+import {query} from '../../../Query';
 
 const index = ({pageData}) => {
     return (
@@ -15,35 +16,7 @@ const index = ({pageData}) => {
 
 export default index;
 
-export var query = `
-  query ($page: Int, $perPage: Int) {
-    Page (page: $page, perPage: $perPage) {
-      pageInfo {
-        total
-        perPage
-        currentPage
-        lastPage
-        hasNextPage
-      }
-      media (type: ANIME) {
-        id
-        title {
-          english
-          romaji
-          native
-        }
-        description
-        coverImage {
-          extraLarge
-        }
-      }
-    }
-  }
-`;
-
-
 export const getStaticProps = async (context) => {
-    console.log(context);
 
     // fetch 10 animes on whichever page user is on
     const pageNum = context.params.pageNum;
@@ -77,12 +50,11 @@ export const getStaticPaths = async () => {
     // calculate total pages (with 10 items per page) and create that number of paths
     const totalItems = resData.data.Page.pageInfo.total;
     const totalPages = Math.ceil(totalItems / 10);
-    console.log('totalpages: ', totalPages)
-    // getting 1620 total pages, but can only access up to page 1619??
     const paths = [];
     for (var i = 0; i < totalPages; i++) {
         paths.push({params: {pageNum: i.toString()}})
     }
+    // getting 1620 total pages, but can only access up to page 1619???
 
     return {
         paths,

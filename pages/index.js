@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import AnimesList from '../components/AnimesList';
 import Header from '../components/Header';
+import {query} from '../Query';
 
 
 const Home = ({pageData}) => {
@@ -16,31 +17,6 @@ const Home = ({pageData}) => {
 
 export default Home;
 
-var query = `
-  query ($page: Int, $perPage: Int) {
-    Page (page: $page, perPage: $perPage) {
-      pageInfo {
-        total
-        perPage
-        currentPage
-        lastPage
-        hasNextPage
-      }
-      media (type: ANIME) {
-        id
-        title {
-          english
-          romaji
-          native
-        }
-        description
-        coverImage {
-          extraLarge
-        }
-      }
-    }
-  }
-`;
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://graphql.anilist.co`, {

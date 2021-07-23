@@ -1,22 +1,4 @@
-// using romaji, english, and native titles because some animes don't have title under english
-export var apiQuery = `
-  query ($page: Int, $perPage: Int) {
-    Page (page: $page, perPage: $perPage) {
-      media (type: ANIME) {
-        id
-        title {
-          romaji
-          english
-          native
-        }
-        description
-        coverImage {
-            extraLarge
-        }
-      }
-    }
-  }
-`;
+import {apiQuery} from '../../Query';
 
 export default async function handler(req, res) {
   

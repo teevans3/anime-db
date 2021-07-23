@@ -21,6 +21,7 @@ const useStyles = (theme) => makeStyles({
 })
 
 export const AnimesList = (props) => {
+    
     const theme = useTheme();
     const classes = useStyles(theme);
 

@@ -11,8 +11,9 @@ const useStyles = makeStyles({
 })
 
 const Header = (props) => {
+    
     const classes = useStyles();
-    // trying to get Header to link home
+
     return (
         <Grid container>
             <Grid xs={12} className={classes.Header}>

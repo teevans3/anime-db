@@ -15,8 +15,6 @@ const useStyles = makeStyles({
 export const Pagination = (props) => {
 
     const classes = useStyles();
-
-    // need to figure out why this looks different on home page...
     
     return (
         <Grid container >
