@@ -11,9 +11,9 @@ Then run 'npm run dev' to start it up. It will be served at http://localhost:300
 - /pages/anime/[pageNum]/index.js - dynamic page template for paginated anime media queries retrieved
 - /pages/api/index.js - REST API for retrieving first 10 anime media queries
 - /pages/index.js - homepage
-- /components/AnimesList - displays 10 anime media data, depending on what page
-- /components/Header - header for each page, homepage has an additional "about" section (just lorem ipsum) to distinguish it as the homepage, visually
-- /components/Pagination - pagination displayed at the bottom of the page, displays current page number and prev/next arrows (if applicable)
+- /components/AnimesList.js - displays 10 anime media data, depending on what page
+- /components/Header.js - header for each page, homepage has an additional "about" section (just lorem ipsum) to distinguish it as the homepage, visually
+- /components/Pagination.js - pagination displayed at the bottom of the page, displays current page number and prev/next arrows (if applicable)
 
 ## If I had more time...
 
