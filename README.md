@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project was created with 'create-next-app'
 
-## Getting Started
+## To run development server:
 
-First, run the development server:
+After installing on your local machine, (assuming you're using npm) run npm install to all dependencies.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Then run 'npm run dev' to start it up. It will be in http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Files of note:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+/pages/anime/[pageNum]/index.js - dynamic page template for paginated anime media queries retrieved
+/pages/api/index.js - REST API for retrieving first 10 anime media queries
+/pages/index.js - homepage
+/components/AnimesList - displays 10 anime media data, depending on what page
+/components/Header - header for each page, homepage has an additional "about" section (just lorem ipsum) to distinguish it as the homepage, visually
+/components/Pagination - pagination displayed at the bottom of the page, displays current page number and prev/next arrows (if applicable)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## If I had more time...
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I want to research more on using Material UI along with Next.js as I had difficulty rendering some of the styles. Sometimes, after refreshing, some styles wouldn't apply. Then after styling a different component, that old style would apply. I need to figure out why this was happening (assuming it has to do with Next.js' server side rendering? I'm still new to Next.js). I would also get more detailed with the styling, rather than using the basic default styling for Material UI components.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Additionally, I would create a dynamic template for each anime query. That way users could get more detailed info on a specific anime. Also would include more pictures, as well as data.
