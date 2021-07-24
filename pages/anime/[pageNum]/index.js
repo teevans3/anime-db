@@ -97,7 +97,7 @@ export const getStaticPaths = async () => {
     let error = null;
 
     try {
-        const res = await fetch(`https://graphql.anilist.co11`, {
+        const res = await fetch(`https://graphql.anilist.co`, {
             method: "POST",
             headers: {
             'Content-Type': 'application/json',
@@ -117,5 +117,10 @@ export const getStaticPaths = async () => {
             paths: paths,
             fallback: false
         }
+    }
+
+    return {
+        paths: paths,
+        fallback: false
     }
 }

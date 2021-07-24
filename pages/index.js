@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import Router from 'next/router';
 import { CircularProgress } from '@material-ui/core';
 import {styled} from '@material-ui/styles';
-import {useUpdatePage} from '../PageContext';
+import {useUpdatePage} from '../context/PageContext';
 
 
 const Home = () => {

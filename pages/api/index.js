@@ -15,9 +15,9 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({query: apiQuery, variables: {perPage: 10}}),
       });
-      const media = await response.json();
+      media = await response.json();
     } catch(err) {
-      console.log(err);
+      res.status(500).json(err)
     }
     
     res.status(200).json({ media: media.data})
