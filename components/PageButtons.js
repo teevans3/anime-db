@@ -1,11 +1,14 @@
 import {Pagination} from '@material-ui/lab';
 import {styled} from '@material-ui/core/styles';
+import {useUpdatePage} from '../PageContext';
 
 
-export const PageButtons = (props) => {    
+
+export const PageButtons = (props) => {
+    const updatePage = useUpdatePage();
 
     return (
-        <PaginationContainer count={Math.ceil(props.pageInfo.total / 10) - 1} onChange={(e, page) => props.setCurrentPage(page)}>
+        <PaginationContainer count={Math.ceil(props.pageInfo.total / 10) - 1} onChange={(e, page) => updatePage(page)}>
         </PaginationContainer>
     )
 }
