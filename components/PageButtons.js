@@ -1,6 +1,4 @@
-import Link from 'next/link';
-import {Grid, Button} from '@material-ui/core';
-import {Pagination, PaginationItem} from '@material-ui/lab';
+import {Pagination} from '@material-ui/lab';
 import {styled} from '@material-ui/core/styles';
 
 

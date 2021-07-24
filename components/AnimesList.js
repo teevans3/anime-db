@@ -1,9 +1,7 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import Image from 'next/image';
 import {Grid, Hidden, Dialog, DialogTitle, DialogContent, DialogContentText} from '@material-ui/core'
 import {useTheme, styled} from '@material-ui/core/styles';
-
-import PageButtons from './PageButtons';
 
 export const AnimesList = (props) => {
     const theme = useTheme();
@@ -20,13 +18,13 @@ export const AnimesList = (props) => {
 
     const animesList = props.animes.map((ani, index) => {
         return (
-            <>
+            <React.Fragment key={ani.id}>
                 {index === 0 || index === 5 ? 
                     <Hidden mdDown>
                         <Grid item lg={1}/>
                     </Hidden>
                 : null}
-                <AnimeImg item lg={2} md={6}  onClick={() => dialogHandler(ani)} key={ani.id}>
+                <AnimeImg item lg={2} md={6}  onClick={() => dialogHandler(ani)}>
                     <Image src={ani.coverImage.extraLarge} alt={ani.title.english || ani.title.romaji || ani.title.native} width={600} height={800} />
                 </AnimeImg>
                 {index === 4 || index === 9 ? 
@@ -34,7 +32,7 @@ export const AnimesList = (props) => {
                         <Grid item lg={1}/>
                     </Hidden>
                 : null}
-            </>
+            </React.Fragment>
             
         )
     });

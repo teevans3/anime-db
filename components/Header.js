@@ -1,26 +1,16 @@
 import Link from 'next/link';
 import {Grid, Typography} from '@material-ui/core'
-import {makeStyles} from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-    Header: {
-        fontSize: '4rem',
-        height: '6rem',
-        textAlign: 'center'
-    }
-})
+import {styled} from '@material-ui/core/styles';
 
 const Header = (props) => {
     
-    const classes = useStyles();
-
     return (
         <Grid container>
-            <Grid xs={12} className={classes.Header}>
+            <HeaderContainer item xs={12}>
                 <Link href="/" passHref >
                     Anime Database
                 </Link>
-            </Grid>
+            </HeaderContainer>
             {/* add pseudo-"about" section if on home page */}
             {props.home ? 
                 <Grid container>
@@ -38,3 +28,9 @@ const Header = (props) => {
 }
 
 export default Header;
+
+const HeaderContainer = styled(Grid)({
+    fontSize: '4rem',
+    height: '6rem',
+    textAlign: 'center'
+})
