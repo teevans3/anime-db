@@ -1,10 +1,10 @@
 import {Pagination} from '@material-ui/lab';
 import {styled} from '@material-ui/core/styles';
-import {useUpdatePage} from '../PageContext';
+import {useUpdatePage} from '../context/PageContext';
 
 
 
-export const PageButtons = (props) => {
+const PageButtons = (props) => {
     const updatePage = useUpdatePage();
 
     return (

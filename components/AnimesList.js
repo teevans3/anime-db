@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
+
 import Image from 'next/image';
 import {Grid, Hidden, Dialog, DialogTitle, DialogContent, DialogContentText} from '@material-ui/core'
-import {useTheme, styled} from '@material-ui/core/styles';
+import {styled} from '@material-ui/core/styles';
 
-export const AnimesList = (props) => {
-    const theme = useTheme();
-    // const classes = useStyles(theme);
+const AnimesList = (props) => {
 
     const [displayDialog, setDisplayDialog] = useState(false);
     const [currentAnimeInfo, setCurrentAnimeInfo] = useState(null);
@@ -37,6 +36,7 @@ export const AnimesList = (props) => {
         )
     });
 
+    
     return (
         <ListContainer>
             <Dialog open={displayDialog} onClose={() => setDisplayDialog(false)}>

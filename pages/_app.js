@@ -1,12 +1,16 @@
 import '../styles/globals.css'
-import { PageContextProvider } from '../PageContext';
+import { PageContextProvider } from '../context/PageContext';
+import { ErrorContextProvider } from '../context/ErrorContext';
 
 function MyApp({ Component, pageProps }) {
   
   return (
-    <PageContextProvider>
-      <Component {...pageProps} />
-    </PageContextProvider>
+    <ErrorContextProvider>
+      <PageContextProvider>
+        <Component {...pageProps} />
+      </PageContextProvider>
+    </ErrorContextProvider>
+
   )
 }
 

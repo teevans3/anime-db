@@ -1,11 +1,5 @@
-import Header from '../components/Header';
-import { Typography, Grid } from '@material-ui/core';
+import Error from '../components/Error';
 
 export default function Custom404() {
-    return (
-        <Grid container>
-            <Header />
-            <Typography variant="h4" align="center">404 - Page Not Found</Typography>
-        </Grid>
-    )
+    return <Error message="Server side error - could not fetch animes. Please try again later." />
 }
