@@ -1,20 +1,30 @@
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import Router from 'next/router';
 
 import Header from '../../../components/Header';
 import AnimesList from '../../../components/AnimesList';
+import PageButtons from '../../../components/PageButtons';
 import {query} from '../../../Query';
 
-const index = ({pageData}) => {
+const Index = (props) => {
+
+    const [currentPage, setCurrentPage] = useState(props.pageData.data.Page.pageInfo.currentPage);
+
+    useEffect(() => {
+        Router.push(`/anime/${currentPage}`)
+    }, [currentPage])
+
     return (
-      <>
+      <div style={{position: 'relative', minHeight: '100vh'}}>
           <Header />
-          <AnimesList animes={pageData.data.Page.media} pagination={pageData.data.Page.pageInfo} />
-      </>
+          <AnimesList animes={props.pageData.data.Page.media} />
+          <PageButtons pageInfo={props.pageData.data.Page.pageInfo} setCurrentPage={setCurrentPage} />
+      </div>
     );
     
 }
 
-export default index;
+export default Index;
 
 export const getStaticProps = async (context) => {
 

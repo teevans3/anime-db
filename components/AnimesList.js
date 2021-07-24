@@ -1,24 +1,9 @@
 import {useState} from 'react';
 import Image from 'next/image';
 import {Grid, Hidden, Dialog, DialogTitle, DialogContent, DialogContentText} from '@material-ui/core'
-import {makeStyles, useTheme, styled} from '@material-ui/core/styles';
+import {useTheme, styled} from '@material-ui/core/styles';
 
-import Pagination from './Pagination';
-
-// const useStyles = (theme) => makeStyles({
-//     ListContainer: {
-//         paddingTop: '2rem',
-//         [theme.breakpoints.down('md')]: {
-//             padding: '2rem 6rem'
-//         }
-//     },
-//     AnimeImg: {
-//         border: '4px solid white',
-//         ':hover': {
-//             cursor: 'pointer'
-//         }
-//     },
-// })
+import PageButtons from './PageButtons';
 
 export const AnimesList = (props) => {
     const theme = useTheme();
@@ -62,7 +47,7 @@ export const AnimesList = (props) => {
                     <div>spinner</div>
                 :
                     <>
-                    <Image src={currentAnimeInfo.coverImage.extraLarge} alt={currentAnimeInfo.title.english || currentAnimeInfo.title.romaji || currentAnimeInfo.title.native} width={600} height={800} />
+                    <Image src={currentAnimeInfo.coverImage.extraLarge} alt={currentAnimeInfo.title.english || currentAnimeInfo.title.romaji || currentAnimeInfo.title.native} width={400} height={600} />
                     <DialogTitle>{currentAnimeInfo.title.english || currentAnimeInfo.title.romaji || currentAnimeInfo.title.native}</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
@@ -75,7 +60,6 @@ export const AnimesList = (props) => {
             <Grid container spacing={2}>
                 {animesList}
             </Grid>
-            <Pagination pageInfo={props.pagination}/>
         </ListContainer>
     )
 }
@@ -83,9 +67,9 @@ export const AnimesList = (props) => {
 export default AnimesList;
 
 const ListContainer = styled(Grid)({
-    paddingTop: '2rem',
+    minHeight: 'calc(100vh - 4rem)',
     '@media (max-width: 1279px)': {
-        padding: '2rem 4rem 0 4rem'
+        padding: '0 4rem 6rem 4rem'
     }
 });
 

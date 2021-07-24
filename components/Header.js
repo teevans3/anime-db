@@ -5,7 +5,7 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles({
     Header: {
         fontSize: '4rem',
-        padding: '1rem 0',
+        height: '6rem',
         textAlign: 'center'
     }
 })

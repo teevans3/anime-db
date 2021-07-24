@@ -1,16 +1,19 @@
 import Link from 'next/link';
 
 import AnimesList from '../components/AnimesList';
-import Header from '../components/Header';
 import {query} from '../Query';
+import Index from './anime/[pageNum]/index';
 
 
 const Home = ({pageData}) => {
+
+
   return (
-    <div>
-      <Header home/>
-      <AnimesList animes={pageData.data.Page.media} pagination={pageData.data.Page.pageInfo} />
-    </div>
+    // <div>
+    //   <Header home/>
+    //   <AnimesList animes={pageData.data.Page.media} pagination={pageData.data.Page.pageInfo} />
+    // </div>
+    <Index pageData={pageData}/>
   )
 
 }
