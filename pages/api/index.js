@@ -14,9 +14,9 @@ export default async function handler(req, res) {
     });
     const resData = await response.json();
     console.log(resData);
-    res.status(200).json({ media: resData.data.Page.media})
+    res.status(200).json({ media: resData.data})
 
   } else {
-    res.status(405).send(`Method ${req.method} Not Allowed.`)
+    res.status(405).end(`Method ${req.method} Not Allowed.`)
   }
 }
