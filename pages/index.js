@@ -1,40 +1,28 @@
-import Link from 'next/link';
+import {useEffect} from 'react';
+import Router from 'next/router';
+import { CircularProgress } from '@material-ui/core';
+import {styled} from '@material-ui/styles';
 
-import AnimesList from '../components/AnimesList';
-import {query} from '../Query';
-import Index from './anime/[pageNum]/index';
 
+const Home = () => {
+  // want home page to be same as 'anime/1', so default will be spinner until first page is loaded
 
-const Home = ({pageData}) => {
-
+  useEffect(() => {
+    Router.push('/anime/1');
+  }, [])
 
   return (
-    // <div>
-    //   <Header home/>
-    //   <AnimesList animes={pageData.data.Page.media} pagination={pageData.data.Page.pageInfo} />
-    // </div>
-    <Index pageData={pageData}/>
+      <div style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Spinner size={124} thickness={5}/>
+      </div>
   )
 
 }
 
+const Spinner = styled(CircularProgress)({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'baseline',
+})
+
 export default Home;
-
-
-export const getStaticProps = async () => {
-  const res = await fetch(`https://graphql.anilist.co`, {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify({query: query, variables: {page: 1, perPage: 10}}),
-  });
-  const pageData = await res.json();
-
-  return {
-    props: {
-      pageData
-    }
-  }
-}
