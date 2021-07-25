@@ -16,13 +16,12 @@ export default async function handler(req, res) {
         body: JSON.stringify({query: apiQuery, variables: {perPage: 10}}),
       });
       media = await response.json();
-    } catch(err) {
-      res.status(500).json(err)
-    }
-    
-    res.status(200).json({ media: media.data})
 
-  } else {
-    res.status(405).end(`Method ${req.method} Not Allowed.`)
+    } catch(err) {
+        return res.status(500).json(err)
+    }
+    return res.status(200).json({ media: media.data})
   }
+
+  res.status(405).end(`Method ${req.method} Not Allowed.`);
 }

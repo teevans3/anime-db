@@ -23,8 +23,6 @@ const Index = (props) => {
 
     // if error from server side, update error context
     useEffect(() => {
-        // ideally, error should be an object containing status code and message...
-        // but fetcherror (in try-catch statement below) won't provide this info
         if (JSON.parse(props.error)) {
             updateError(true)
         }
@@ -68,8 +66,8 @@ export const getStaticProps = async (context) => {
         const res = await fetch(`https://graphql.anilist.co`, {
             method: "POST",
             headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
             },
             body: JSON.stringify({query: query, variables: {page: pageNum, perPage: 10}}),
         });
@@ -86,7 +84,7 @@ export const getStaticProps = async (context) => {
         props: {
             media: animeData,
             pageInfo: pageData,
-            error: JSON.stringify(error)
+            error: error
         }
     }
 }
