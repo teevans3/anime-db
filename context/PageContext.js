@@ -5,7 +5,7 @@ const PageContext = createContext();
 const UpdatePageContext = createContext();
 
 export const PageContextProvider = ({children}) => {
-    const [page, setPage] = useState('1');
+    const [page, setPage] = useState(1);
 
     return (
         <PageContext.Provider value={page}>

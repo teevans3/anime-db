@@ -5,8 +5,8 @@ import Link from 'next/link';
 export default function Custom404() {
     return (
       <ErrorContainer container>
-        <Typography variant="h2" align="center">404 Error</Typography>
-        <Typography variant="subtitle1" align="center">Page not found. Please try a different page.</Typography>
+        <Typography variant="h2" align="center">500 Error</Typography>
+        <Typography variant="subtitle1" align="center">Server-side Error. Please try again later.</Typography>
         <Link href="/" passHref>
           <Button>Go back home</Button>
         </Link>
